@@ -1,6 +1,6 @@
 {
   "name": "pchains-tx-parser",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A transactions parser for PChains.",
   "main": "pchains-tx-parser.js",
   "scripts": {
