@@ -2,6 +2,11 @@
 [PChains](http://burst-marketplace.binary-dev.com/pchains/documentations/doc.php) is a side-chains Proof-of-Concept for [Burstcoin](https://www.burst-coin.org/) network. It's purpose is to show the power of the Burst messaging system and how it can be used to signal immutable data with structured data...
 This module is a simple NodeJS parser for PChains transactions.
 
+# NPM install
+```
+npm install pchains-tx-parser
+```
+
 # Usage
 ### Require
 ```
@@ -33,3 +38,10 @@ parser('TEST@genesis@500000');
 
 ###### Returns
 { ticker: 'TEST', type: 'genesis', amount: '500000' }
+
+# Dependencies
+- [x] [hex2dec](https://www.npmjs.com/package/hex2dec)
+
+# Links
+- [x] [Github](https://github.com/gpedro34/pchains-tx-parser/)
+- [x] [NPM](https://www.npmjs.com/package/pchains-tx-parser)
