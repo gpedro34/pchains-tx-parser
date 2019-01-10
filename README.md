@@ -1,18 +1,18 @@
-#Concept
+# Concept
 PChains is a side-chains manager for [Burstcoin](https://www.burst-coin.org/) network. This module is a NodeJS parser for PChains transactions...
 
-#Usage
-##Require
+# Usage
+## Require
 ```
 const parser = require('pchains-tx-parser').getInfo;
 ```
 
-###Normal Transactions
+### Normal Transactions
 ```
 parser('TEST@tx@01030000002d81a7a233c4d70501070000001027000000000000011000000000000000000000000105000000f779587bc54dc43901140000001027000000000000');
 ```
 
-######Returns
+###### Returns
 { ticker: 'TEST',
   type: 'tx',
   amount: 0,
@@ -25,10 +25,10 @@ parser('TEST@tx@01030000002d81a7a233c4d70501070000001027000000000000011000000000
    }
 }
 
-###Genesis Transactions
+### Genesis Transactions
 ```
 parser('TEST@genesis@500000');
 ```
 
-######Returns
+###### Returns
 { ticker: 'TEST', type: 'genesis', amount: '500000' }
