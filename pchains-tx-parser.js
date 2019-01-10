@@ -1,7 +1,6 @@
-// HEX <-> DEC converter (high precision even for >64 bit strings)
+// HEX <-> DEC converter (high precision for 64 bit strings)
 var converter = require('hex2dec');
 //Parser
-//Total Amount of Tokens or Transaction Bytes
 exports.getInfo = (message) => {
   //Vars
   var arr = message.split('');
@@ -102,8 +101,6 @@ exports.getInfo = (message) => {
     }
     //Creates and returns an object with the transaction data from the sender
     const getTxDetails = (opCodeObj) => {
-      //Instructions Array (keep for logging and spotting)
-      //console.log(opCodeObj)
       var fee = converter.hexToDec(opCodeObj.instructions[2][2]);
       if(fee === ''){
         fee = 0;
@@ -171,7 +168,6 @@ exports.getInfo = (message) => {
           obj.errors.push(['Need to provide a valid hex string...', hex]);
           return obj;
         }
-        //TODO: More validation for improved performance!!! Not a problem ATM
       }
     }
   }
