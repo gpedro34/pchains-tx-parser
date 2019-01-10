@@ -2,7 +2,7 @@
 PChains is a side-chains manager for [Burstcoin](https://www.burst-coin.org/) network. This module is a NodeJS parser for PChains transactions...
 
 # Usage
-## Require
+### Require
 ```
 const parser = require('pchains-tx-parser').getInfo;
 ```
