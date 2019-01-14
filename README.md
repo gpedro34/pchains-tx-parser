@@ -1,4 +1,6 @@
 # Concept
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fgpedro34%2Fpchains-tx-parser.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fgpedro34%2Fpchains-tx-parser?ref=badge_shield)
+
 [PChains](http://burst-marketplace.binary-dev.com/pchains/documentations/doc.php) is a side-chains Proof-of-Concept for [Burstcoin](https://www.burst-coin.org/) network. It's purpose is to show the power of the Burst messaging system and how it can be used to signal immutable data with structured data...
 This module is a simple NodeJS parser for PChains transactions.
 
@@ -45,3 +47,7 @@ parser('TEST@genesis@500000');
 # Links
 - [x] [Github](https://github.com/gpedro34/pchains-tx-parser/)
 - [x] [NPM](https://www.npmjs.com/package/pchains-tx-parser)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fgpedro34%2Fpchains-tx-parser.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fgpedro34%2Fpchains-tx-parser?ref=badge_large)
