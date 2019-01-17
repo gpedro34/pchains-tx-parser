@@ -4,7 +4,8 @@
   "description": "A transactions parser for PChains.",
   "main": "pchains-tx-parser.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "cover": "nyc mocha"
   },
   "keywords": [
     "pchains",
@@ -19,6 +20,7 @@
     "hex2dec": "^1.1.1"
   },
   "devDependencies": {
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
   }
 }
