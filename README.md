@@ -1,7 +1,8 @@
-![NPM Version](https://badgen.net/npm/v/pchains-tx-parser)
-![NPM Downloads](https://badgen.net/npm/dt/pchains-tx-parser)
-![NPM Dependents](https://badgen.net/npm/dependents/pchains-tx-parser)
-![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fgpedro34%2Fpchains-tx-parser.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fgpedro34%2Fpchains-tx-parser?ref=badge_shield)
+[![NPM Version](https://badgen.net/npm/v/pchains-tx-parser)]()
+[![NPM Downloads](https://badgen.net/npm/dt/pchains-tx-parser)]()
+[![NPM Dependents](https://badgen.net/npm/dependents/pchains-tx-parser)]()
+[![Tech Debt](https://img.shields.io/sonar/4.2/http/sonar.petalslink.com/org.ow2.petals%3Apetals-se-ase/tech_debt.svg)]()
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fgpedro34%2Fpchains-tx-parser.svg?type=shield)]()
 
 # Concept
 [PChains](http://burst-marketplace.binary-dev.com/pchains/documentations/doc.php) is a side-chains Proof-of-Concept for [Burstcoin](https://www.burst-coin.org/) network. It's purpose is to show the power of the Burst messaging system and how it can be used to signal immutable data with structured data...
@@ -49,18 +50,15 @@ npm test
 ```
 
 # Coverage
-![Tech Debt](https://img.shields.io/sonar/4.2/http/sonar.petalslink.com/org.ow2.petals%3Apetals-se-ase/tech_debt.svg)
 Run:
 ```
 npm run cover
 ```
 
-# Dependencies
-![Dependencies Status](https://img.shields.io/david/gpedro34/pchains-tx-parser.svg)
+# Dependencies  [![Dependencies Status](https://img.shields.io/david/gpedro34/pchains-tx-parser.svg)]()
 - [x] [hex2dec](https://www.npmjs.com/package/hex2dec)
 
 # Dev-Dependencies
-![Dev-Dependencies Status](https://img.shields.io/david/dev/gpedro34/pchains-tx-parser.svg)
 - [x] [Mocha](https://www.npmjs.com/package/mocha)
 - [x] [nyc](https://www.npmjs.com/package/nyc)
 
