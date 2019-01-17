@@ -1,6 +1,6 @@
 {
   "name": "pchains-tx-parser",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A transactions parser for PChains.",
   "main": "pchains-tx-parser.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "burstcoin"
   ],
   "author": "gpedro <project.beazy@gmail.com> (https://github.com/gpedro34)",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "hex2dec": "^1.1.1"
   },
