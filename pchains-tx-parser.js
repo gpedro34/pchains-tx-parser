@@ -1,26 +1,27 @@
+'use strict';
+
 // HEX <-> DEC converter (high precision for 64 bit strings)
-var converter = require('hex2dec');
+const converter = require('hex2dec');
 //Parser
 exports.getInfo = (message) => {
-  //Vars
-  var arr = message.split('');
-  var finalObj = {
+  let arr = message.split('');
+  let finalObj = {
       ticker: '',
       type: '',
       amount: ''
-  }
-  var obj = {
+  };
+  let obj = {
     instructions: [],
     errors: []
-  }
-  var test = false;
-  var ticker = false;
-  var genesis = false;
+  };
+  let test = false;
+  let ticker = false;
+  let genesis = false;
   //Token Ticker and transaction type
   const getTicker = (message) => {
-    var arr = message.split('');
-    var done = false;
-    var a;
+    let arr = message.split('');
+    let done = false;
+    let a;
     for(a = 0; a < arr.length; a++){
       if(arr[a] === '@' && !done){
         done = true;
@@ -49,14 +50,13 @@ exports.getInfo = (message) => {
     }
 
   }
-  var x = getTicker(message);
+  let x = getTicker(message);
   //Get parsed Ciyam bytecode (already endian converted)
   const parse = (hex) => {
-    //Vars
-    var arr = hex.split('');
-    var strArr = [];
-    var valid = false;
-    var done = false;
+    let arr = hex.split('');
+    let strArr = [];
+    let valid = false;
+    let done = false;
 
     //Validates input for type string
     const validateStr = () => {
@@ -68,11 +68,12 @@ exports.getInfo = (message) => {
       }
     }
     valid = validateStr();
+
     //Parses instructions like "01 "
     const parseInstr = () => {
-      var prev = '';
+      let prev = '';
       strArr = [];
-      for(var a = 0; a < 2; a++){
+      for(let a = 0; a < 2; a++){
         prev += arr.splice(0, 1);
       }
       strArr.push(prev);
@@ -80,8 +81,8 @@ exports.getInfo = (message) => {
     }
     //Parses vars like "00000000 "
     const parseVar = () => {
-      prev = '';
-      for(var a = 0; a < 8; a++){
+      let prev = '';
+      for(let a = 0; a < 8; a++){
         prev += arr.splice(0, 1);
       }
       prev = endian(prev);
@@ -90,8 +91,8 @@ exports.getInfo = (message) => {
     }
     //Parses literal like "0000000000000000"
     const parseLiteral = () => {
-      prev = '';
-      for(var a = 0; a < 16; a++){
+      let prev = '';
+      for(let a = 0; a < 16; a++){
         prev += arr.splice(0, 1);
       }
       prev = endian(prev);
@@ -99,33 +100,17 @@ exports.getInfo = (message) => {
       obj.instructions.push(strArr);
       done = true;
     }
-    //Creates and returns an object with the transaction data from the sender
-    const getTxDetails = (opCodeObj) => {
-      var fee = converter.hexToDec(opCodeObj.instructions[2][2]);
-      if(fee === ''){
-        fee = 0;
-      }
-      var data = {
-        sender: converter.hexToDec(opCodeObj.instructions[0][2]),
-        receiver: converter.hexToDec(opCodeObj.instructions[3][2]),
-        amount: Number(converter.hexToDec(opCodeObj.instructions[1][2])),
-        fee: Number(fee),
-        merge: Number(converter.hexToDec(opCodeObj.instructions[4][2]))
-      };
-      return data;
-    }
-
     //Endian converter
     const endian = (string) => {
-      var arr = [];
-      var a;
+      let arr = [];
+      let a;
       for (a = 0; a < string.length; a){
         arr.push(string.slice(a, a + 2));
         a += 2;
       }
       if(a >= string.length){
-        var newArr = [];
-        var b;
+        let newArr = [];
+        let b;
         for(b = arr.length-1; b >= 0; b--){
           newArr.push(arr[b]);
         }
@@ -135,25 +120,41 @@ exports.getInfo = (message) => {
         }
       }
     }
+
+    //Creates and returns an object with the transaction data from the sender
+    const getTxDetails = (opCodeObj) => {
+      let fee = converter.hexToDec(opCodeObj.instructions[2][2]);
+      if(fee === ''){
+        fee = 0;
+      }
+      let data = {
+        sender: converter.hexToDec(opCodeObj.instructions[0][2]),
+        receiver: converter.hexToDec(opCodeObj.instructions[3][2]),
+        amount: Number(converter.hexToDec(opCodeObj.instructions[1][2])),
+        fee: Number(fee),
+        merge: Number(converter.hexToDec(opCodeObj.instructions[4][2]))
+      };
+      return data;
+    }
+
     //Fires Workflow
-    for(var a = 0; a < a+1; a){
+    for(let a = 0; a < a+1; a){
       if(valid){
         //valid hex string (error handling)
         if(done){
           //done parsing instruction
           if(arr.length >= 26){
             //there is still more instructions to parse
-            str = '';
             done = false;
             parseInstr();
           } else if(arr.length >= 1){
             //there is more instructions but code is incomplete (error handling)
-            var strErr = arr.join('');
+            let strErr = arr.join('');
             obj.errors.push(['Something went wrong. Unable to parse the entire hex string', strErr]);
             return obj;
           } else {
             //finished parsing all instructions... Decode and return!
-            var data = getTxDetails(obj);
+            let data = getTxDetails(obj);
             return data;
           }
         } else if(a === 0){
@@ -161,7 +162,6 @@ exports.getInfo = (message) => {
           a++;
           parseInstr();
         }
-
       } else {
         //not valid hex string (error handling)
         if (done) {
@@ -176,8 +176,8 @@ exports.getInfo = (message) => {
     return finalObj;
   }
   //If normal transaction
-  var tx = '';
-  for(var a = 0; a < arr.length; a++){
+  let tx = '';
+  for(let a = 0; a < arr.length; a++){
     if(arr[a] === '@'){
       if(ticker === false){
         ticker = true;
