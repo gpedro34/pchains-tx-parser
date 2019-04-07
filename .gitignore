@@ -2,3 +2,4 @@ node_modules
 .git
 .scannerwork
 .nyc_output
+*sonarcloud*
