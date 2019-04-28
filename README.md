@@ -44,13 +44,13 @@ parser('TEST@genesis@500000');
 { ticker: 'TEST', type: 'genesis', amount: '500000' }
 
 # Tests
-Run:
+Run tests:
 ```
 npm test
 ```
 
 # Coverage
-Run:
+Test coverage report:
 ```
 npm run cover
 ```
