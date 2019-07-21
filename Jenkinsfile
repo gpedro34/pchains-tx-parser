@@ -30,6 +30,6 @@ node{
     }
     
     stage('Notify Discord'){
-        discordSend description: 'Jenkins Pipeline Build', result: currentBuild.currentResult, link: "${BUILD_URL}", title: "${JOB_NAME}", webhookURL: 'https://discordapp.com/api/webhooks/597933023538708485/A-aEI2_Y3BMVzSwF1gtRUYx67QRUAfVuxyJMZjbkkJbG2rxAP5sjMDdvRwUm0sOt39JX'
+        discordSend description: 'Jenkins Pipeline Build', result: currentBuild.currentResult, link: "${BUILD_URL}", title: "${JOB_NAME}", webhookURL: "${WEBHOOK_URL}"
     }
 }
